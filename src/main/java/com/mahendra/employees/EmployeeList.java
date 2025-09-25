@@ -5,7 +5,7 @@ import java.util.List;
 
 // List of employees
 public class EmployeeList {
-    private static final List<Employee> employeeList = new ArrayList();
+    private static final List<Employee> employeeList = java.util.Collections.synchronizedList(new ArrayList<Employee>());
     
     private EmployeeList(){
     }
@@ -19,6 +19,12 @@ public class EmployeeList {
         employeeList.add(new Employee("Samuel","Williams","22-03-1985","Coordinator","Finance","samuel.williams@abc.com"));
     }
     
+    /**
+     * Returns the static list of employees.
+     * This method is thread-safe as the underlying list is only modified during static initialization.
+     *
+     * @return unmodifiable list of employees
+     */
     public static List <Employee> getInstance(){
         return employeeList;
     }
