@@ -12,7 +12,7 @@ A standalone Java web application for managing employee records, built with embe
 
 ## Technology Stack
 
-- **Java 17** - Programming language
+- **Java 21** - Programming language
 - **Servlet API 3.1** - Web framework
 - **JSP & JSTL** - View templates
 - **Embedded Jetty 9.4** - Web server
@@ -21,7 +21,7 @@ A standalone Java web application for managing employee records, built with embe
 
 ## Build Requirements
 
-- Java 17 or higher
+- Java 21 or higher
 - Maven 3.6 or higher
 
 ## Building the Application
@@ -95,7 +95,7 @@ java -jar target/emp-demo-standalone.jar
 The application is completely self-contained. To deploy:
 
 1. Copy the `emp-demo-standalone.jar` file to your target environment
-2. Ensure Java 17+ is installed
+2. Ensure Java 21+ is installed
 3. Run: `java -jar emp-demo-standalone.jar [port]`
 
 No external servlet container (like Tomcat) is required.
