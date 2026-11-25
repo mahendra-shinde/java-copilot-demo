@@ -1,0 +1,29 @@
+{
+  "runtime": "Java",
+  "declaredVersions": ["17"],
+  "status": "Supported (LTS)",
+  "recommendedLTS": "25",
+  "assessmentDate": "2026-11-25",
+  "latestFeatureRelease": "27",
+  "supportCaveat": "Support depends on JDK vendor and entitlement. Oracle JDK 17 Premier Support ended September 2026; Extended Support runs through September 2029 for entitled customers.",
+  "upgradeRequiredImmediately": false,
+  "compatibilityVerified": false,
+  "evidence": [
+    {
+      "path": "pom.xml",
+      "details": "Compiler plugin source/target and maven.compiler.source/target properties specify 17."
+    },
+    {
+      "path": "README.md",
+      "details": "Technology stack specifies Java 17; build requirements specify Java 17 or higher."
+    },
+    {
+      "url": "https://www.oracle.com/java/technologies/downloads/",
+      "details": "Java 27 is the latest feature release; Java 25 is the latest LTS."
+    },
+    {
+      "url": "https://www.oracle.com/java/technologies/java-se-support-roadmap.html",
+      "details": "Official Oracle JDK support schedule; used because no bundled mapping is installed."
+    }
+  ]
+}
