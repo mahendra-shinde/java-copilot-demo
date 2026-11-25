@@ -1,0 +1,45 @@
+name: Maven Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7.0.1
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v6.3.0
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Build and test
+        run: mvn --batch-mode --no-transfer-progress clean verify
+
+      - name: Upload executable JAR
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: emp-demo-standalone
+          path: target/emp-demo-standalone.jar
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload test reports
+        if: ${{ always() && hashFiles('target/surefire-reports/**') != '' }}
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: maven-surefire-reports
+          path: target/surefire-reports/
+          if-no-files-found: ignore
+          retention-days: 7

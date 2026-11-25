@@ -34,6 +34,21 @@ mvn clean package
 
 This will create `target/emp-demo-standalone.jar` - a fully self-contained executable JAR.
 
+### GitHub Actions Build
+
+The **Maven Build** workflow runs on pushes to `main`, pull requests targeting
+`main`, and manual runs via **Actions → Maven Build → Run workflow**. It uses
+Eclipse Temurin JDK 17 with Maven dependency caching and runs
+`mvn --batch-mode --no-transfer-progress clean verify`.
+
+To download the executable JAR, open a successful run under **Actions → Maven
+Build**, then download **emp-demo-standalone** from the run's **Artifacts** section.
+Extract the downloaded archive to get `emp-demo-standalone.jar`.
+
+When Maven generates Surefire reports, they are uploaded as
+**maven-surefire-reports**, including after test failures. Both artifacts are
+retained for 7 days.
+
 ## Running the Application
 
 ### Default Port (8080)
